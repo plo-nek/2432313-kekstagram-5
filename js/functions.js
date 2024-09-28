@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const getCompareString = (str, maxLength)=>{
   if(str.length <= maxLength){
     return true;
@@ -20,7 +21,7 @@ console.log(getCheckString('Лёша на полке клопа нашёл '));
 const getNumberOfString = (str) =>{
   let space = '';
   for (let i = 0; i <= str.length; i ++){
-    let newChar = str[i];
+    const newChar = str[i];
     if (isNaN(parseInt(newChar,10)) === false){
       space += str[i];
     }
