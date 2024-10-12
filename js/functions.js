@@ -1,10 +1,5 @@
 /* eslint-disable no-console */
-const getCompareString = (str, maxLength)=>{
-  if(str.length <= maxLength){
-    return true;
-  }
-  return false;
-};
+const getCompareString = (str, maxLength)=> str.length <= maxLength;
 console.log(getCompareString('проверяемая строка', 18));
 
 const isPalindrome = (str)=>{
