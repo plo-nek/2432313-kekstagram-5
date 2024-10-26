@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const NAMES = [
   'Иван',
   'Хуан Себастьян',
