@@ -2,6 +2,7 @@
 import { posts } from './data.js';
 import {postIsOpen} from './fullPost.js';
 
+
 const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 const picturesContainer = document.querySelector('.pictures');
 
@@ -18,6 +19,7 @@ const createPostPrewiew = (post) =>{
     evt.preventDefault();
     postIsOpen(post);
   });
+
   return postPrewiew;
 };
 
