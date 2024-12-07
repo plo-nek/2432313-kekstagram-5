@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import {isEscEvent} from './util.js';
 
 const bigPicture = document.querySelector('.big-picture');
