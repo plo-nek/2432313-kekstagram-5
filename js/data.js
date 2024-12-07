@@ -47,19 +47,21 @@ const COUNT_AVATAR = 6;
 const arrayIds = [];
 
 const createComment = () =>{
+  const comments = [];
   let commentId;
 
   for (let i = 0; i < getRandomInt(COUNT_COMMENTS.min, COUNT_COMMENTS.max); i++) {
     commentId = getUniqueValue(arrayIds, 1, 999);
     arrayIds.push(commentId);
 
-    return{
+    comments.push({
       id: commentId,
       avatar: `img/avatar-${getRandomInt(1, COUNT_AVATAR)}.svg`,
       message: getRandomArrayElement(MESSAGE),
       name: getRandomArrayElement(NAMES),
-    };
+    });
   }
+  return comments;
 };
 
 const createPosts = (i) => {

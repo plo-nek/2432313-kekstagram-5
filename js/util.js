@@ -12,4 +12,6 @@ const getUniqueValue = (array, min, max) => {
   return id;
 };
 
-export {getRandomInt,getRandomArrayElement,getUniqueValue};
+const isEscEvent = (evt) => evt.key === 'Escape' || evt.key === 'Esc';
+
+export {getRandomInt,getRandomArrayElement,getUniqueValue,isEscEvent};

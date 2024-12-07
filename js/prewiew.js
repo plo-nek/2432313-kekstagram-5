@@ -1,5 +1,7 @@
 /* eslint-disable no-console */
 import { posts } from './data.js';
+import {postIsOpen} from './fullPost.js';
+
 
 const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 const picturesContainer = document.querySelector('.pictures');
@@ -12,6 +14,11 @@ const createPostPrewiew = (post) =>{
   postImg.alt = post.description;
   postPrewiew.querySelector('.picture__likes').textContent = post.likes;
   postPrewiew.querySelector('.picture__comments').textContent = post.comments.length;
+
+  postPrewiew.addEventListener('click',(evt)=>{
+    evt.preventDefault();
+    postIsOpen(post);
+  });
 
   return postPrewiew;
 };
