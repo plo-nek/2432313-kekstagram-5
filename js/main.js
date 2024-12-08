@@ -6,4 +6,5 @@
 import {renderPosts} from './prewiew.js';
 import './form.js';
 
+
 renderPosts();
