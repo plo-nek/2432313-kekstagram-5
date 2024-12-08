@@ -4,4 +4,7 @@
 // console.log(posts);
 
 import {renderPosts} from './prewiew.js';
+import './form.js';
+
+
 renderPosts();
