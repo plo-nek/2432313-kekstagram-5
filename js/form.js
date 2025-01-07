@@ -3,6 +3,8 @@ import { isEscEvent } from './util.js';
 import { zoomIn, zoomOut } from './scale.js';
 import { resetEffectImage, createSlider, destroySlider } from './effects.js';
 import { validationHashtag } from './validation.js';
+import { showSuccessLoad, showErrorLoad } from './modal.js';
+import { request } from './network.js';
 
 const body = document.querySelector('body');
 const imgUpload = document.querySelector('.img-upload');
@@ -77,4 +79,16 @@ const onPopupEscKeydown = (evt) => {
   }
 };
 
+const onSuccess = () => {
+  closeUploadForm();
+  showSuccessLoad();
+};
+
 fileInput.addEventListener('change', openUploadForm);
+
+imgUpload.addEventListener('submit', (evt) => {
+  evt.preventDefault();
+
+  request(onSuccess, showErrorLoad, 'POST', new FormData(evt.target));
+});
+
