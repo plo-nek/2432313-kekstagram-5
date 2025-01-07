@@ -24,3 +24,4 @@ const removeDuplicate = (arr) => [...new Set(arr)];
 const checkingMaxLength = (text, count) => text.length <= count;
 
 export {getRandomInt,getRandomArrayElement,getUniqueValue,isEscEvent,getWordEnding,removeDuplicate,checkingMaxLength};
+

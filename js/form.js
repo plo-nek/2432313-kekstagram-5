@@ -91,3 +91,4 @@ imgUpload.addEventListener('submit', (evt) => {
 
   request(onSuccess, showErrorLoad, 'POST', new FormData(evt.target));
 });
+
