@@ -81,4 +81,3 @@ const createPosts = (i) => {
 const posts = Array.from({ length: COUNT_POSTS }, (_, i) => createPosts(i + 1));
 
 export {createPosts, posts, COUNT_RANDOM_POSTS,COMMENTS_MAX_LENGTH};
-

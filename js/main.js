@@ -3,4 +3,3 @@ import './filter.js';
 import { getData } from './loadPosts.js';
 
 getData();
-
