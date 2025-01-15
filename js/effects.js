@@ -14,6 +14,7 @@ const effectLevel = document.querySelector('.effect-level');
 const sliderElement = effectLevel.querySelector('.effect-level__slider');
 const sliderValue = effectLevel.querySelector('.effect-level__value');
 
+
 const imgPreview = document.querySelector('.img-upload__preview img');
 
 const imgEffect = {
@@ -85,6 +86,7 @@ const destroySlider = () => {
 };
 
 const onEffectsChange = (evt) => {
+
   const effect = evt.target.id.split('-')[1];
 
   imgEffect.effect = effect;
@@ -94,3 +96,4 @@ const onEffectsChange = (evt) => {
 };
 
 export { resetEffectImage, createSlider, destroySlider,onEffectsChange};
+

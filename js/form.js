@@ -3,6 +3,7 @@ import { isEscEvent, getPhotoSrc } from './util.js';
 import { zoomIn, zoomOut } from './scale.js';
 import { resetEffectImage, createSlider, destroySlider,onEffectsChange } from './effects.js';
 import { validationText } from './validation.js';
+
 import { showSuccessLoad, showErrorLoad } from './modal.js';
 import { request } from './network.js';
 
@@ -14,6 +15,7 @@ const imgCancelButton = imgUpload.querySelector('.img-upload__cancel');
 
 const imgPreview = document.querySelector('.img-upload__preview img');
 const imgEffectsPreviews = imgPreview.querySelectorAll('.effects__preview');
+
 const imgScale = document.querySelector('.img-upload__scale');
 const scaleControlValue = imgScale.querySelector('.scale__control--value');
 const scaleControlSmaller = imgScale.querySelector('.scale__control--smaller');
@@ -25,6 +27,7 @@ const textDescription = document.querySelector('.text__description');
 
 const onHashtagsInput = () => validationText(textHashtags, 'hashtag');
 const onDescriptionInput = () => validationText(textDescription, 'description');
+
 
 const openUploadForm = () => {
   imgOverlay.classList.remove('hidden');
@@ -41,6 +44,7 @@ const openUploadForm = () => {
   textHashtags.addEventListener('input', onHashtagsInput);
   textDescription.addEventListener('input', onDescriptionInput);
   imgUpload.addEventListener('submit', onImgUploadFormSubmit);
+
 };
 
 const closeUploadForm = () => {
@@ -57,6 +61,7 @@ const closeUploadForm = () => {
   textHashtags.removeEventListener('input', onHashtagsInput);
   textDescription.removeEventListener('input', onDescriptionInput);
   imgUpload.removeEventListener('submit', onImgUploadFormSubmit);
+
 };
 
 const resetForm = () => {
@@ -103,3 +108,4 @@ const loadPreview = () => {
 };
 
 fileInput.addEventListener('change', loadPreview);
+

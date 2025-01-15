@@ -30,6 +30,7 @@ const removeModal = () =>
 const showErrorReceive = (message) => {
   document.body.append(createModalFragment(receiveErrorTemplate, message));
   return removeModal();
+
 };
 
 const showSuccessLoad = () => {
