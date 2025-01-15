@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
-import { showBlockFilter } from './filter.js';
-
+import { posts } from './data.js';
 import {postIsOpen} from './fullPost.js';
+
 
 const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 const picturesContainer = document.querySelector('.pictures');
@@ -19,11 +19,11 @@ const createPostPrewiew = (post) =>{
     evt.preventDefault();
     postIsOpen(post);
   });
+
   return postPrewiew;
 };
 
-const renderPosts = (posts, callback) => {
-
+const renderPosts = () => {
   const pictureFragment = document.createDocumentFragment();
 
   posts.forEach((post) => {
@@ -31,21 +31,6 @@ const renderPosts = (posts, callback) => {
   });
 
   picturesContainer.appendChild(pictureFragment);
-
-  showBlockFilter();
-
-  if (callback) {
-    callback();
-  }
 };
 
-const removePictures = () => {
-  const pictures = picturesContainer.querySelectorAll('.picture');
-
-  pictures.forEach((picture) => {
-    picture.remove();
-  });
-};
-
-export{renderPosts, removePictures};
-
+export{renderPosts};

@@ -94,6 +94,7 @@ const renderComments = (comments) => {
   checkTheHiddenLoadComments(true);
 };
 
+
 const renderPost = (post) => {
   bigPicture.querySelector('.big-picture__img img').src = post.url;
   social.querySelector('.likes-count').textContent = post.likes;
@@ -103,6 +104,7 @@ const renderPost = (post) => {
   socialComments.innerHTML = '';
   commentsCountLoaded = 0;
   renderComments(post.comments);
+
 };
 
 const postIsOpen = (post) => {

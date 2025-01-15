@@ -68,3 +68,4 @@ const getPhotoSrc = (fileChooser) => {
 };
 
 export {getRandomInt,getRandomArrayElement,getUniqueValue,isEscEvent,getWordEnding,removeDuplicate,checkingMaxLength,debounce,shuffle,getPhotoSrc};
+
