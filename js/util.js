@@ -23,5 +23,49 @@ const removeDuplicate = (arr) => [...new Set(arr)];
 
 const checkingMaxLength = (text, count) => text.length <= count;
 
-export {getRandomInt,getRandomArrayElement,getUniqueValue,isEscEvent,getWordEnding,removeDuplicate,checkingMaxLength};
+const DEBOUNCE_INTERVAL = 500;
+
+const debounce = (callback) => {
+  let lastTimeout = null;
+
+  return (...args) => {
+    if (lastTimeout) {
+      window.clearTimeout(lastTimeout);
+    }
+
+    lastTimeout = window.setTimeout(() => {
+      callback(...args);
+    }, DEBOUNCE_INTERVAL);
+  };
+};
+
+const shuffle = (arr) => {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+
+  return arr;
+};
+
+const FILE_TYPES = ['gif', 'jpg', 'jpeg', 'png'];
+
+const getPhotoSrc = (fileChooser) => {
+  const file = fileChooser.files[0];
+  const fileName = file.name.toLowerCase();
+
+  return new Promise((resolve, reject) => {
+    if (FILE_TYPES.some((it) => fileName.endsWith(it))) {
+      const reader = new FileReader();
+
+      reader.readAsDataURL(file);
+      reader.addEventListener('load', () => resolve(reader.result), { once: true });
+    } else {
+      reject('Неверный формат файла');
+    }
+  });
+};
+
+export {getRandomInt,getRandomArrayElement,getUniqueValue,isEscEvent,getWordEnding,removeDuplicate,checkingMaxLength,debounce,shuffle,getPhotoSrc};
 

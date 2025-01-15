@@ -43,6 +43,9 @@ const COUNT_COMMENTS = {
 
 const COUNT_POSTS = 25;
 const COUNT_AVATAR = 6;
+const COUNT_RANDOM_POSTS = 10;
+const COMMENTS_MAX_LENGTH = 140;
+
 
 const arrayIds = [];
 
@@ -77,4 +80,5 @@ const createPosts = (i) => {
 
 const posts = Array.from({ length: COUNT_POSTS }, (_, i) => createPosts(i + 1));
 
-export {posts};
+export {createPosts, posts, COUNT_RANDOM_POSTS,COMMENTS_MAX_LENGTH};
+

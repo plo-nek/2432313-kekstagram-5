@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
-import { posts } from './data.js';
+import { showBlockFilter } from './filter.js';
+
 import {postIsOpen} from './fullPost.js';
 
 const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
@@ -21,7 +22,8 @@ const createPostPrewiew = (post) =>{
   return postPrewiew;
 };
 
-const renderPosts = () => {
+const renderPosts = (posts, callback) => {
+
   const pictureFragment = document.createDocumentFragment();
 
   posts.forEach((post) => {
@@ -29,6 +31,21 @@ const renderPosts = () => {
   });
 
   picturesContainer.appendChild(pictureFragment);
+
+  showBlockFilter();
+
+  if (callback) {
+    callback();
+  }
 };
 
-export{renderPosts};
+const removePictures = () => {
+  const pictures = picturesContainer.querySelectorAll('.picture');
+
+  pictures.forEach((picture) => {
+    picture.remove();
+  });
+};
+
+export{renderPosts, removePictures};
+

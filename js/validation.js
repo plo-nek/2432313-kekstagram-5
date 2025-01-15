@@ -1,6 +1,15 @@
+/* eslint-disable no-use-before-define */
+import { COMMENTS_MAX_LENGTH } from './data.js';
+import { getWordEnding } from './util.js';
+
 const Hashtags = {
   MAX_SYMBOLS: 20,
   MAX_COUNT: 5,
+};
+
+const Callbacks = {
+  'hashtag': (text) => validationHashtag(text),
+  'description': (text) => validationDescription(text),
 };
 
 const validationHashtag = (hashtagText) => {
@@ -50,4 +59,29 @@ const validationHashtag = (hashtagText) => {
   return messageError;
 };
 
-export { validationHashtag };
+const validationDescription = (text) => {
+  const textLength = text.trim().length;
+  const maxLength = COMMENTS_MAX_LENGTH;
+
+  if (textLength > maxLength) {
+    return `Превышен лимит символов: ${maxLength}. Удалите ${(textLength - maxLength)} ${getWordEnding(textLength - maxLength, ['символ', 'символа', 'символов'])}.`;
+  }
+};
+
+const validationText = (field, callback) => {
+  field.setCustomValidity('');
+  field.style.border = 'none';
+
+  const errorMessage = Callbacks[callback](field.value);
+  if (errorMessage) {
+    field.setCustomValidity(errorMessage);
+    field.style.border = '2px solid red';
+  } else {
+    field.style.border = 'none';
+  }
+
+  field.reportValidity();
+};
+
+export { validationText };
+
